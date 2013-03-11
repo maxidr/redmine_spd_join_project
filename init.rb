@@ -1,3 +1,6 @@
+require 'redmine'
+require_dependency 'hooks/join_project_hook'
+
 Redmine::Plugin.register :redmine_spd_join_project do
   name 'Redmine SPD Join Project plugin'
   author 'Maximiliano Dello Russo'
