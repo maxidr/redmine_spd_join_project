@@ -1,3 +1,5 @@
 = redmine_spd_join_project
 
-Description goes here
+Plugin de Redmine (v 2) permite que un usuario no miembro de un proyecto pueda autoincluirse en el mismo.
+El usuario que se autoincluye no require autorización.  Una vez incluido se envía un mail al gestor del proyecto.
+Los roles son configurables.
