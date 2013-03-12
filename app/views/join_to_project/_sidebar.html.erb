@@ -1,0 +1,4 @@
+<% unless project.nil? or User.current.member_of?(project) or User.current.anonymous? %>
+  <h3>Acciones</h3>
+  <%= link_to 'Unirse al proyecto', join_to_project_path(project), :class => 'icon icon-add', :method => :post %>
+<% end %>

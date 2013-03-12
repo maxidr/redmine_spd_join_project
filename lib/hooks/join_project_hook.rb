@@ -6,12 +6,7 @@ module RedmineSpdJoinProject
       stylesheet_link_tag('chosen.css', :plugin => 'redmine_spd_join_project') 
     end
 
-    def view_projects_show_sidebar_bottom(context = {})
-      return nil if should_not_show_join?(context)
-      content_tag("h3", "Acciones") +
-      link_to("Unirse al proyecto", join_to_project_path(context[:project]), 
-              :class => 'icon icon-add', :method => :post)
-    end
+    render_on :view_projects_show_sidebar_bottom, :partial => 'join_to_project/sidebar'
 
     def should_not_show_join?(context)
       # El usuario debe estar autenticado

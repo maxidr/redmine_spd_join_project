@@ -12,7 +12,9 @@ class SpdJoinProjectMailer < Mailer
     mails = Set.new
     users_by_role = project.users_by_role
     roles_to_send.each do |rol|
-      mails += users_by_role[rol].map { |u| u.mail }
+      #mails += users_by_role[rol].map { |u| u.mail }
+      users = users_by_role[rol]
+      mails += users.map { |u| u.mail } if users
     end
     mails.to_a.join(", ")
   end
