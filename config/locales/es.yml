@@ -1,0 +1,7 @@
+es:
+  spd:
+    project:
+      join:
+        success: Ahora es un nuevo miembro de este proyecto.
+        fail: Ocurrió un error al intentar sumarse como miembro. Intentelo mas tarde.
+        already_member: No puede unirse a un projecto donde ya es miembro.

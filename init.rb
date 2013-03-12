@@ -8,4 +8,7 @@ Redmine::Plugin.register :redmine_spd_join_project do
   version '0.0.1'
   url 'https://github.com/maxidr/redmine_spd_join_project'
   author_url 'https://coderwall.com/maxidr'
+
+
+
 end

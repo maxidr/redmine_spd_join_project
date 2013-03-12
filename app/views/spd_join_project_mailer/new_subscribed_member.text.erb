@@ -1,0 +1,4 @@
+El usuario <%= @user.name %> (<%= user_url(@user) %>) se ha suscrito al proyecto "<%= @project.name %>" (<%= project_url(@project)%>).
+
+Puede modificar el rol del usuario ingresando aquí: <%= settings_project_url(@project, :tab => 'members') %>
+
