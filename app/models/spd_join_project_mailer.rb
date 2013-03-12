@@ -9,15 +9,17 @@ class SpdJoinProjectMailer < Mailer
   end
 
   def mail_to(project)
+    mails = Set.new
     users_by_role = project.users_by_role
-    roles_to_send.map do |rol|
-      users_by_role[rol].mail
+    roles_to_send.each do |rol|
+      mails += users_by_role[rol].map { |u| u.mail }
     end
+    mails.to_a.join(", ")
   end
 
-  # TODO Los roles deben ser configurables 
   def roles_to_send
-    Role.where("name LIKE ?", 'Jefe de projecto')
+    ids = Setting.plugin_redmine_spd_join_project["project_manager_roles"]
+    Role.where(:id => ids)
   end
 
 end

@@ -18,9 +18,9 @@ class JoinToProjectController < ApplicationController
     redirect_to project_path(@project)
   end
 
-  # TODO: Obtener esta info desde la configuración
   def role_to_subscriptor
-    role = Role.where(:name => 'deployer').first
+    role_id = Setting.plugin_redmine_spd_join_project["role_to_subscriptor"]
+    role = Role.find(role_id)
     return [] unless role
     [role.id]
   end

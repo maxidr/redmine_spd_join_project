@@ -1,7 +1,11 @@
 module RedmineSpdJoinProject
   class JoinProjectHookListener < Redmine::Hook::ViewListener
 
-    #def view_layouts_base_sidebar(context = {})
+    def view_layouts_base_html_head(context={})
+      javascript_include_tag('chosen.jquery.js', :plugin => 'redmine_spd_join_project') +
+      stylesheet_link_tag('chosen.css', :plugin => 'redmine_spd_join_project') 
+    end
+
     def view_projects_show_sidebar_bottom(context = {})
       return nil if should_not_show_join?(context)
       content_tag("h3", "Acciones") +

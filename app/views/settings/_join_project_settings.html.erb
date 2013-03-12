@@ -1,0 +1,28 @@
+<div class="tabular settings">
+  <p>
+    <label>Rol para el nuevo suscripto</label>
+    <%= select_tag "settings[role_to_subscriptor]", 
+      options_from_collection_for_select(Role.all, 'id', 'name', @settings['role_to_subscriptor']) %>
+    <span class="summary">El rol que tomará el usuario al suscribirse a un projecto</span>
+  </p>
+  <p>
+    <label>Roles a notificar ante un nuevo suscripto</label>
+    <%= select_tag "settings[project_manager_roles]", 
+      options_from_collection_for_select(Role.all, 'id', 'name', @settings['project_manager_roles']), 
+      :multiple => true, :style => "width:350px;" %>
+  </p>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("#settings_role_to_subscriptor").chosen();
+    $("#settings_project_manager_roles").chosen();
+  });
+</script>
+
+<style>
+  .tabular.settings p {
+    overflow: visible;
+  }
+</style>
+
